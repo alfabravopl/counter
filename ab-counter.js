@@ -72,6 +72,8 @@ class abCounter {
 
     abCounterHelper.getInstance().setLastPosition(document.defaultView.pageYOffset);
     
+    this.calculatePosition();
+
     document.querySelectorAll(this.options.element).forEach((item) => {
       var pos = abCounterHelper.getInstance().getLastPosition();
       if (pos + window.innerHeight > item.getAttribute('data-top')) {
@@ -80,8 +82,6 @@ class abCounter {
         abCounter.runCounter(item);
       }
     });
-
-    this.calculatePosition();
   } // init
 
   //---------------------------------------------------------------------------
